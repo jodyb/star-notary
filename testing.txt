@@ -1,0 +1,27 @@
+curl -X "POST" "http://localhost:8000/requestValidation" \
+     -H 'Content-Type: application/json; charset=utf-8' \
+     -d $'{
+  "address": "1Mstwzd6ToEkbCs1AoC57UGof7ick6S9di"
+}'
+
+curl -X "POST" "http://localhost:8000/message-signature/validate" \
+     -H 'Content-Type: application/json; charset=utf-8' \
+     -d $'{
+  "address": "1Mstwzd6ToEkbCs1AoC57UGof7ick6S9di",
+  "signature": "H1GYd02X+6bNvj1b/tclLeakDzDglFqw1GmmW97HVvG+O7bAoXMxxN0Awz+XXHGZ5WmWzm55uesynj5JheelwLI="
+}'
+
+curl -X "POST" "http://localhost:8000/block" \
+     -H 'Content-Type: application/json; charset=utf-8' \
+     -d $'{
+  "address": "1Mstwzd6ToEkbCs1AoC57UGof7ick6S9di",
+  "star": {
+    "dec": "-26° 29'\'' 24.9",
+    "ra": "16h 29m 1.0s",
+    "story": "Found star using https://www.google.com/sky/"
+  }
+}'
+
+curl "http://localhost:8000/stars/address:1Mstwzd6ToEkbCs1AoC57UGof7ick6S9di"
+
+curl "http://localhost:8000/stars/hash:9fb696c61f054d53193ddd6ac094597326242505e5b13ecd039d041e4360a5be"
